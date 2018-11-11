@@ -208,7 +208,12 @@ public class SecurityHelper {
 		return UNKNOWN_GAME_PROFILE;
 	}
 
+	public static Map<UUID,GameProfile> cachedGameProfileMap = new HashMap<UUID, GameProfile>();
 	public static GameProfile getProfile(UUID uuid, String name) {
+
+		if (cachedGameProfileMap.containsKey(uuid)){
+			return cachedGameProfileMap.get(uuid);
+		}
 
 		GameProfile owner = MinecraftServer.getServer().func_152358_ax().func_152652_a(uuid);
 		if (owner == null) {
@@ -218,6 +223,7 @@ public class SecurityHelper {
 				MinecraftServer.getServer().func_152358_ax().func_152649_a(owner);
 			}
 		}
+		cachedGameProfileMap.put(uuid,owner);
 		return owner;
 	}
 
