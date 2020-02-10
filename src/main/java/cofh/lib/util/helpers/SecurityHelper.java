@@ -12,6 +12,7 @@ import cpw.mods.fml.relauncher.ReflectionHelper;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 import java.util.UUID;
 
 import net.minecraft.client.Minecraft;
